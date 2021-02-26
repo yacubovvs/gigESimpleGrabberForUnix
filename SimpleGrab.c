@@ -46,6 +46,7 @@ void showUsageOnError(char *error){
 	printf("-a  Attempts tо grab image (default 1)\n");
 	printf("-p  Package size (default 1500)\n");
 	printf("-e  Exposure time (default 35000)\n");
+	printf("-t  Patch to example file");
 	//printf("-f  Image format [BMP|PNG|JPG|RAW|TIFF]\n");
 	printf("\n");
 }
@@ -66,12 +67,16 @@ int main(int argc, char* argv[])
 
 
     char *cameraSerialNumber 	= "";
-    char *pathToFile 			= "out.bmp";
+    char *pathToFile 			= "/home/vitaly/Grabber/out.bmp";
     char *interPackegeDelay 	= "50";
     char *attemptsToGrab 		= "1";
     char *packageSize 			= "1500";
 	char *exposureTime 			= "35000";
     char *imageFormat 			= "BMP";
+    char *testImage 			= "/home/vitaly/Grabber/image.bmp";
+
+    //"/home/vitaly/Grabber/image.bmp", "rb");
+	//FILE* file_out  = fopen("/home/vitaly/Grabber/out.bmp", "wb");
 
 
     //printf( "App start!\n" );
@@ -92,6 +97,8 @@ int main(int argc, char* argv[])
     		exposureTime = argv[i+1];
     	}else if (!strcmp(argv[i], "-f")){
     		imageFormat = argv[i+1];
+    	}else if (!strcmp(argv[i], "-t")){
+    		testImage = argv[i+1];
     	}
 
     }
@@ -281,6 +288,10 @@ int main(int argc, char* argv[])
 #endif
 
 
+            /*
+            FILE* file1     = fopen(testImage, "rb");
+            FILE* file_out  = fopen(pathToFile, "wb");
+            */
             FILE* file1     = fopen("/home/vitaly/Grabber/image.bmp", "rb");
             FILE* file_out  = fopen("/home/vitaly/Grabber/out.bmp", "wb");
 
