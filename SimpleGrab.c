@@ -41,12 +41,12 @@ void showUsageOnError(char *error){
 	printf("\n\n");
 	printf("Usage:\n");
 	printf("-s  Camera serial number\n");
-	printf("-o  Path to file\n");
+	printf("-o  Path to output file\n");
 	printf("-d  Inner package delay in ticks (default 50)\n");
 	printf("-a  Attempts tо grab image (default 1)\n");
 	printf("-p  Package size (default 1500)\n");
 	printf("-e  Exposure time (default 35000)\n");
-	printf("-t  Patch to example file");
+	printf("-t  Patch to sample file");
 	//printf("-f  Image format [BMP|PNG|JPG|RAW|TIFF]\n");
 	printf("\n");
 }
@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
     char *packageSize 			= "1500";
 	char *exposureTime 			= "35000";
     char *imageFormat 			= "BMP";
-    char *testImage 			= "/home/vitaly/Grabber/image.bmp";
+    char *testImage 			= "";
 
     //"/home/vitaly/Grabber/image.bmp", "rb");
 	//FILE* file_out  = fopen("/home/vitaly/Grabber/out.bmp", "wb");
@@ -106,6 +106,12 @@ int main(int argc, char* argv[])
     if (!strcmp(cameraSerialNumber, "")){
     	showUsageOnError("Error: serial number is not set");
     }
+
+    if (!strcmp(testImage, "")){
+    	showUsageOnError("Path to sample image should not be empty\n(needed to catch bmp header from file)\nJust make a photo via Basler Pylon software and save it to disk like a bhmp image \n\n");
+    }
+
+
 
     res = PylonEnumerateDevices( &numDevices );
     CHECK(res);
@@ -290,10 +296,12 @@ int main(int argc, char* argv[])
 
             /*
             FILE* file1     = fopen(testImage, "rb");
-            FILE* file_out  = fopen(pathToFile, "wb");
+
             */
-            FILE* file1     = fopen("/home/vitaly/Grabber/image.bmp", "rb");
-            FILE* file_out  = fopen("/home/vitaly/Grabber/out.bmp", "wb");
+            //FILE* file1     = fopen("/home/vitaly/Grabber/image.bmp", "rb");
+            //FILE* file_out  = fopen("/home/vitaly/Grabber/out.bmp", "wb");
+            FILE* file1     = fopen(testImage, "rb");
+            FILE* file_out  = fopen(pathToFile, "wb");
 
             /*
             BITMAPFILEHEADER header1 = readHeader(file1);
