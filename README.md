@@ -32,7 +32,7 @@ The sample file in BMP format is required to get the desired headers and can be 
 
 Example:
 ```
-SimpleGrab.exe -s 23348170 -o "C:\LayerAggregation\gigE_Grabber\temp\test.png" -f BMP -p 9000 -d 5000 -a 10 -e 35000
+/opt/gigEGrabber/SimpleGrab -s 23506644 -d 10 -p 1500 -e 450000 -a 10 -o /opt/gigEGrabber/out_test.bmp -t /opt/gigEGrabber/image.bmp
 ```
 
 Feel free to use it for commercial purposes.
@@ -68,7 +68,7 @@ make
 
 Пример:
 ```
-SimpleGrab.exe -s 23348170 -o "C:\LayerAggregation\gigE_Grabber\temp\test.png" -f BMP -p 9000 -d 5000 -a 10 -e 35000
+/opt/gigEGrabber/SimpleGrab -s 23506644 -d 10 -p 1500 -e 450000 -a 10 -o /opt/gigEGrabber/out_test.bmp -t /opt/gigEGrabber/image.bmp
 ```
 
 Разрешено использование в коммерчиских целях.
