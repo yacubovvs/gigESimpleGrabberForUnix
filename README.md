@@ -9,8 +9,6 @@ Simple tool fot getting image from GigE Cameras as Cognex or Basler in terminal 
 To set up the camera use Pylon - https://www.baslerweb.com/en/products/software/basler-pylon-camera-software-suite/
 Required Pylon 6+ library
 
-Don't want to build project - https://github.com/yacubovvs/gigeSimpleGrabber/tree/master/bin/Release
-
 Compile:
 ```
 make
