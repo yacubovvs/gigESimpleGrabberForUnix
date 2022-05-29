@@ -19,7 +19,7 @@ with image processing. This is illustrated in the OverlappedGrab sample program.
 #include "bmp.h"
 #include "bmp.c"
 
-#include <pylonc/PylonC.h>
+#include "pylonc/PylonC.h"
 
 /* Simple error handling. */
 #define CHECK( errc ) if ( GENAPI_E_OK != errc ) printErrorAndExit( errc )
@@ -134,6 +134,10 @@ int main(int argc, char* argv[])
 		res = PylonDeviceOpen( hDev, PYLONC_ACCESS_MODE_CONTROL | PYLONC_ACCESS_MODE_STREAM );
 		CHECK(res);
 
+            if (!strcmp(cameraSerialNumber, "usb")){
+                deviceFound = true;
+                break;
+            }
 
 			char buf[256];
 			size_t siz = sizeof(buf);
